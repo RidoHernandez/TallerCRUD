@@ -5,5 +5,8 @@
     <Compile Update="Refacciones.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Servicios.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 </Project>
