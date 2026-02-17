@@ -26,5 +26,12 @@ namespace CRUD
         {
             lblFecha.Content = DateTime.Now.ToString("dd/MM/yyyy");
         }
+
+        private void Refacciones_Click(object sender, RoutedEventArgs e)
+        {
+            Refacciones refacciones = new Refacciones(this);
+            refacciones.Show();
+            this.Hide();
+        }
     }
 }

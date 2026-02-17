@@ -17,9 +17,11 @@ namespace CRUD
     /// </summary>
     public partial class Refacciones : Window
     {
-        public Refacciones()
+        private Window ventanaAnterior;
+        public Refacciones(Window ventanaAnterior)
         {
             InitializeComponent();
+            this.ventanaAnterior = ventanaAnterior;
         }
     }
 }
