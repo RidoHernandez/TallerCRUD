@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CRUD"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="550" Width="800">
     <Grid Margin="0,0,0,-16">
         <Image HorizontalAlignment="Left" Height="94" Margin="245,80,0,0" VerticalAlignment="Top" Width="360" Style="{StaticResource img-banner}"/>
         <Label Content="Bienvenido" HorizontalAlignment="Left" Margin="175,21,0,0" VerticalAlignment="Top" Width="173" Style="{StaticResource label}"/>
         <Label x:Name="lblFecha" Content="Fecha:" HorizontalAlignment="Left" Margin="438,21,0,0" VerticalAlignment="Top" Width="167" Style="{StaticResource label}"/>
         <Button x:Name="Refacciones" Content="Refacciones" HorizontalAlignment="Left" Margin="148,343,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Style="{StaticResource btn}" Click="Refacciones_Click"/>
-        <Button x:Name="Servicios" Content="Servicios" HorizontalAlignment="Left" Margin="527,343,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.529,0.419" Style="{StaticResource btn}"/>
+        <Button x:Name="Servicios" Content="Servicios" HorizontalAlignment="Left" Margin="527,343,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.529,0.419" Style="{StaticResource btn}" Click="Servicios_Click"/>
         <Image HorizontalAlignment="Left" Height="100" Margin="30,30,0,0" VerticalAlignment="Top" Width="100" Style="{StaticResource logo}"/>
         <Image HorizontalAlignment="Left" Height="232" Margin="328,120,0,0" VerticalAlignment="Top" Width="194" Style="{StaticResource car}"/>
         <Label Content="Taller Ferrari Andorra La Vella | Ricardo Perez  2026" HorizontalAlignment="Left" Margin="262,399,0,0" VerticalAlignment="Top" Style="{StaticResource label-footter}"/>

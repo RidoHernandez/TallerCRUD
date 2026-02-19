@@ -33,5 +33,12 @@ namespace CRUD
             refacciones.Show();
             this.Hide();
         }
+
+        private void Servicios_Click(object sender, RoutedEventArgs e)
+        {
+            Servicios servicios = new Servicios(this);
+            servicios.Show();
+            this.Hide();
+        }
     }
 }

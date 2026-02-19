@@ -9,13 +9,25 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Img\banner-2.png" />
+    <None Remove="Img\img-1.jpg" />
+    <None Remove="Img\img-2.jpg" />
+    <None Remove="Img\img-3.png" />
+    <None Remove="Img\img-4.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MaterialDesignColors" Version="5.3.0" />
     <PackageReference Include="MaterialDesignThemes" Version="5.3.0" />
     <PackageReference Include="MySql.Data" Version="9.6.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Img\" />
+    <Resource Include="Img\banner-2.png" />
+    <Resource Include="Img\img-1.jpg" />
+    <Resource Include="Img\img-2.jpg" />
+    <Resource Include="Img\img-3.png" />
+    <Resource Include="Img\img-4.jpg" />
   </ItemGroup>
 
 </Project>

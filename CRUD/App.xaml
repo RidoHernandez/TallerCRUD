@@ -33,7 +33,7 @@
             <Setter Property="Height" Value="100"/>
             <Setter Property="Panel.ZIndex" Value="10"/>
             <Setter Property="Stretch" Value="UniformToFill"/>
-            <Setter Property="Source" Value="img/img-1.jpg"/>
+            <Setter Property="Source" Value="Img/img-1.jpg"/>
         </Style>
         <Style x:Key="label" TargetType="Label">
             <Setter Property="FontFamily" Value="Segoe UI"/>
@@ -51,14 +51,14 @@
             <Setter Property="Height" Value="100"/>
             <Setter Property="Panel.ZIndex" Value="10"/>
             <Setter Property="Stretch" Value="UniformToFill"/>
-            <Setter Property="Source" Value="img/img-2.jpg"/>
+            <Setter Property="Source" Value="Img/img-2.jpg"/>
         </Style>
         <Style x:Key="car" TargetType="Image">
             <Setter Property="Width" Value="275"/>
             <Setter Property="Height" Value="100"/>
             <Setter Property="Panel.ZIndex" Value="10"/>
             <Setter Property="Stretch" Value="UniformToFill"/>
-            <Setter Property="Source" Value="img/img-3.png"/>
+            <Setter Property="Source" Value="Img/img-3.png"/>
         </Style>
         <Style x:Key="label-footter" TargetType="Label">
             <Setter Property="FontFamily" Value="Segoe UI"/>
@@ -80,18 +80,28 @@
         </Style>
         
         <!--Refacciones-->
+        <!-- ========================= -->
+        <!-- IMAGEN BANNER (más compacta) -->
+        <!-- ========================= -->
         <Style x:Key="img-banner3" TargetType="Image">
-            <Setter Property="Width" Value="275"/>
-            <Setter Property="Height" Value="100"/>
+            <Setter Property="Width" Value="220"/>
+            <Setter Property="Height" Value="75"/>
             <Setter Property="Panel.ZIndex" Value="10"/>
             <Setter Property="Stretch" Value="UniformToFill"/>
             <Setter Property="Source" Value="/Img/banner-2.png"/>
+            <Setter Property="Margin" Value="0,0,0,5"/>
         </Style>
+
+
+        <!-- ========================= -->
+        <!-- PANEL IZQUIERDO (más pequeño y compacto) -->
+        <!-- ========================= -->
         <Style x:Key="LeftPanel" TargetType="Border">
-            <Setter Property="Width" Value="500"/>
-            <Setter Property="Height" Value="840"/>
+            <Setter Property="Width" Value="400"/>
+            <Setter Property="Height" Value="650"/>
             <Setter Property="CornerRadius" Value="15"/>
-            <Setter Property="Margin" Value="20"/>
+            <Setter Property="Margin" Value="15"/>
+            <Setter Property="Padding" Value="12"/>
             <Setter Property="Background">
                 <Setter.Value>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
@@ -103,46 +113,54 @@
             </Setter>
             <Setter Property="Effect">
                 <Setter.Value>
-                    <DropShadowEffect BlurRadius="15" ShadowDepth="3" Opacity="0.3"/>
+                    <DropShadowEffect BlurRadius="12" ShadowDepth="2" Opacity="0.25"/>
                 </Setter.Value>
             </Setter>
         </Style>
 
-        <!-- TEXTOS -->
+
+        <!-- ========================= -->
+        <!-- TEXTOS (más chicos y sin tanto margen) -->
+        <!-- ========================= -->
         <Style x:Key="TitleText" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="26"/>
+            <Setter Property="FontSize" Value="20"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="0,0,0,2"/>
         </Style>
 
         <Style x:Key="SubTitleText" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="FontSize" Value="11"/>
             <Setter Property="Foreground" Value="#E0E0E0"/>
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="FontStyle" Value="Italic"/>
+            <Setter Property="Margin" Value="0,0,0,8"/>
         </Style>
 
         <Style x:Key="HeaderText" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="FontSize" Value="18"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
             <Setter Property="Foreground" Value="#111"/>
-            <Setter Property="Margin" Value="10,0,0,15"/>
+            <Setter Property="Margin" Value="5,0,0,10"/>
         </Style>
 
         <Style x:Key="LabelText" TargetType="TextBlock">
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontSize" Value="13"/>
-            <Setter Property="Margin" Value="0,8,0,3"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Margin" Value="0,3,0,1"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
         </Style>
 
-        <!-- INPUTS -->
+
+        <!-- ========================= -->
+        <!-- INPUTS (pegaditos y compactos) -->
+        <!-- ========================= -->
         <Style x:Key="InputTextBox" TargetType="TextBox">
-            <Setter Property="Height" Value="32"/>
-            <Setter Property="FontSize" Value="13"/>
-            <Setter Property="Padding" Value="10,5"/>
-            <Setter Property="Margin" Value="0,0,0,5"/>
+            <Setter Property="Height" Value="28"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Padding" Value="8,4"/>
+            <Setter Property="Margin" Value="0,0,0,3"/>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Background" Value="#F2F2F2"/>
             <Setter Property="Foreground" Value="#111"/>
@@ -151,8 +169,8 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="TextBox">
-                        <Border CornerRadius="8"
-                            Background="{TemplateBinding Background}">
+                        <Border CornerRadius="6"
+                        Background="{TemplateBinding Background}">
                             <ScrollViewer Margin="0" x:Name="PART_ContentHost"/>
                         </Border>
                     </ControlTemplate>
@@ -160,12 +178,15 @@
             </Setter>
         </Style>
 
-        <!-- BOTONES -->
+
+        <!-- ========================= -->
+        <!-- BOTONES (más pequeños) -->
+        <!-- ========================= -->
         <Style x:Key="BtnPrimary" TargetType="Button">
-            <Setter Property="Width" Value="95"/>
-            <Setter Property="Height" Value="40"/>
-            <Setter Property="Margin" Value="5"/>
-            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="Width" Value="85"/>
+            <Setter Property="Height" Value="32"/>
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="FontSize" Value="12"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Background" Value="#00C853"/>
@@ -174,7 +195,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" CornerRadius="10">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="8">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                     </ControlTemplate>
@@ -191,18 +212,17 @@
         </Style>
 
         <Style x:Key="BtnSecondary" TargetType="Button" BasedOn="{StaticResource BtnPrimary}">
-            <Setter Property="Width" Value="220"/>
+            <Setter Property="Width" Value="180"/>
             <Setter Property="Background" Value="#333"/>
         </Style>
 
         <Style x:Key="BtnBack" TargetType="Button" BasedOn="{StaticResource BtnPrimary}">
-            <Setter Property="Width" Value="220"/>
+            <Setter Property="Width" Value="180"/>
             <Setter Property="Background" Value="#111"/>
         </Style>
-
         <Style x:Key="BtnSearch" TargetType="Button">
-            <Setter Property="Width" Value="120"/>
-            <Setter Property="Height" Value="38"/>
+            <Setter Property="Width" Value="80"/>
+            <Setter Property="Height" Value="30"/>
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Cursor" Value="Hand"/>
@@ -222,8 +242,8 @@
 
         <!-- PANEL FILTROS -->
         <Style x:Key="FilterPanel" TargetType="Border">
-            <Setter Property="Width" Value="700"/>
-            <Setter Property="Height" Value="90"/>
+            <Setter Property="Width" Value="400"/>
+            <Setter Property="Height" Value="100"/>
             <Setter Property="Background" Value="White"/>
             <Setter Property="CornerRadius" Value="15"/>
             <Setter Property="Margin" Value="0,0,0,15"/>
@@ -233,37 +253,40 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
         <Style x:Key="LabelFilter" TargetType="TextBlock">
             <Setter Property="FontSize" Value="12"/>
             <Setter Property="FontWeight" Value="SemiBold"/>
             <Setter Property="Foreground" Value="#444"/>
             <Setter Property="Margin" Value="0,0,0,3"/>
         </Style>
-
         <Style x:Key="FilterTextBox" TargetType="TextBox" BasedOn="{StaticResource InputTextBox}">
             <Setter Property="Background" Value="#EFEFEF"/>
             <Setter Property="Height" Value="34"/>
+            <Setter Property="Width" Value="150"/>
         </Style>
 
-        <!-- TABLA -->
+
+        <!-- ========================= -->
+        <!-- TABLA (ajustada a tu pantalla) -->
+        <!-- ========================= -->
         <Style x:Key="TableContainer" TargetType="Border">
-            <Setter Property="Width" Value="550"/>
-            <Setter Property="Height" Value="640"/>
+            <Setter Property="Width" Value="560"/>
+            <Setter Property="Height" Value="650"/>
             <Setter Property="Background" Value="White"/>
             <Setter Property="CornerRadius" Value="15"/>
-            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Padding" Value="8"/>
+            <Setter Property="Margin" Value="0"/>
             <Setter Property="Effect">
                 <Setter.Value>
-                    <DropShadowEffect BlurRadius="12" ShadowDepth="2" Opacity="0.15"/>
+                    <DropShadowEffect BlurRadius="10" ShadowDepth="2" Opacity="0.12"/>
                 </Setter.Value>
             </Setter>
         </Style>
 
         <Style x:Key="CustomDataGrid" TargetType="DataGrid">
-            <Setter Property="RowHeight" Value="30"/>
-            <Setter Property="Height" Value="550"/>
-            <Setter Property="FontSize" Value="13"/>
+            <Setter Property="RowHeight" Value="26"/>
+            <Setter Property="Height" Value="500"/>
+            <Setter Property="FontSize" Value="12"/>
             <Setter Property="GridLinesVisibility" Value="None"/>
             <Setter Property="Background" Value="White"/>
             <Setter Property="Foreground" Value="#111"/>
@@ -274,6 +297,38 @@
             <Setter Property="CanUserDeleteRows" Value="False"/>
             <Setter Property="SelectionUnit" Value="FullRow"/>
             <Setter Property="AlternationCount" Value="2"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
         </Style>
+        
+        <!--filter panel 2-->
+        <!-- PANEL FILTROS -->
+        <Style x:Key="FilterPanel-rec" TargetType="Border">
+            <Setter Property="Width" Value="600"/>
+            <Setter Property="Height" Value="100"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="CornerRadius" Value="15"/>
+            <Setter Property="Margin" Value="0,0,0,15"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect BlurRadius="10" ShadowDepth="2" Opacity="0.15"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="LabelFilter-rec" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Foreground" Value="#444"/>
+            <Setter Property="Margin" Value="0,0,0,3"/>
+        </Style>
+        <Style x:Key="FilterTextBox-rec" TargetType="TextBox" BasedOn="{StaticResource InputTextBox}">
+            <Setter Property="Background" Value="#EFEFEF"/>
+            <Setter Property="Height" Value="34"/>
+            <Setter Property="Width" Value="150"/>
+        </Style>
+
     </Application.Resources>
 </Application>

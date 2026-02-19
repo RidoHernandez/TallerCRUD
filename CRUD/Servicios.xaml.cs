@@ -22,10 +22,12 @@ namespace CRUD
         private Window ventanaAnterior;
         private int claveSeleccionada = -1;
         private string connectionString = "Server=20.3.152.185;Port=3306;Database=Taller;Uid=ricardo;Pwd=7febrero2006;";
+        //private string connectionString = "Server=127.0.0.1;Port=3307;Database=Taller;Uid=root;Pwd=root;";
 
         public Servicios(Window ventanaanterior)
         {
             InitializeComponent();
+            CargarServicios();
             this.ventanaAnterior = ventanaanterior;
         }
 
@@ -37,35 +39,41 @@ namespace CRUD
                 {
                     conn.Open();
 
-                    string query = @"SELECT Clave_servicio, Nombre_servicio, Descripcion, Costo_base, Tiempo_estimado 
-                                     FROM Servicios 
-                                     WHERE Nombre_servicio LIKE @nombre";
+                    string query = @"SELECT Clave_servicio, Nombre_servicio, Descripcion, Costo_base, Tiempo_estimado_horas 
+                             FROM Servicios 
+                             WHERE Nombre_servicio LIKE @nombre";
 
                     if (!string.IsNullOrWhiteSpace(filtroCosto))
                     {
                         query += " AND Costo_base = @costo";
                     }
 
-                    MySqlCommand cmd = new MySqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@nombre", "%" + filtroNombre + "%");
+                    
+                    query += " ORDER BY Clave_servicio ASC";
 
-                    if (!string.IsNullOrWhiteSpace(filtroCosto))
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@costo", filtroCosto);
+                        cmd.Parameters.AddWithValue("@nombre", "%" + filtroNombre + "%");
+
+                        if (!string.IsNullOrWhiteSpace(filtroCosto))
+                        {
+                            cmd.Parameters.AddWithValue("@costo", filtroCosto);
+                        }
+
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+
+                        dgServicios.ItemsSource = dt.DefaultView;
                     }
-
-                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-
-                    dgServicios.ItemsSource = dt.DefaultView;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar servicios: " + ex.Message);
+                MessageBox.Show("Error al cargar servicios: " + ex.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
 
         private bool ValidarCampos()
         {
@@ -112,12 +120,13 @@ namespace CRUD
                 return false;
             }
 
-            if (!int.TryParse(txtTiempoEstimado.Text, out int tiempo))
+            if (!double.TryParse(txtTiempoEstimado.Text, out double tiempo))
             {
-                MessageBox.Show("⚠ El tiempo estimado debe ser un número entero.");
+                MessageBox.Show("⚠ El tiempo estimado debe ser un número (entero o decimal).");
                 txtTiempoEstimado.Focus();
                 return false;
             }
+
 
             if (tiempo <= 0)
             {
@@ -166,7 +175,7 @@ namespace CRUD
                 {
                     conn.Open();
 
-                    string query = @"INSERT INTO Servicios(Nombre_servicio, Descripcion, Costo_base, Tiempo_estimado)
+                    string query = @"INSERT INTO Servicios(Nombre_servicio, Descripcion, Costo_base, Tiempo_estimado_horas)
                                      VALUES(@nombre, @descripcion, @costo, @tiempo)";
 
                     MySqlCommand cmd = new MySqlCommand(query, conn);
@@ -210,7 +219,7 @@ namespace CRUD
                                      SET Nombre_servicio=@nombre,
                                          Descripcion=@descripcion,
                                          Costo_base=@costo,
-                                         Tiempo_estimado=@tiempo
+                                         Tiempo_estimado_horas =@tiempo
                                      WHERE Clave_servicio=@clave";
 
                     MySqlCommand cmd = new MySqlCommand(query, conn);
@@ -312,12 +321,13 @@ namespace CRUD
 
             claveSeleccionada = Convert.ToInt32(fila["Clave_servicio"]);
 
-            txtClaveServicio.Text = claveSeleccionada.ToString();
+            txtClaveServicio.Text = fila["Clave_servicio"].ToString();
             txtNombreServicio.Text = fila["Nombre_servicio"].ToString();
             txtDescripcion.Text = fila["Descripcion"].ToString();
             txtCostoBase.Text = fila["Costo_base"].ToString();
-            txtTiempoEstimado.Text = fila["Tiempo_estimado"].ToString();
+            txtTiempoEstimado.Text = fila["Tiempo_estimado_horas"].ToString();
         }
+
 
         private void btnRegresar_Click(object sender, RoutedEventArgs e)
         {

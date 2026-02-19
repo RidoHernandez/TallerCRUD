@@ -5,22 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CRUD"
         mc:Ignorable="d"
-        Title="Refacciones" Height="1000" Width="1224">
+        Title="Refacciones" Height="800" Width="1000">
     <Grid>
         <!--<Image HorizontalAlignment="Left" Height="430" Margin="0,1,0,0" VerticalAlignment="Top" Width="313" Style="{StaticResource img-banner3}"/>-->
         <!-- PANEL IZQUIERDO -->
-        <Border Style="{StaticResource LeftPanel}" Margin="10,58,714,89">
-            <Grid Margin="20,20,20,20">
+        <Border Style="{StaticResource LeftPanel}" Margin="12,57,588,77">
+            <Grid Margin="20,5,20,20">
                 <StackPanel Margin="20">
 
-                    <TextBlock Text="REFACCIONES"
-                               Style="{StaticResource TitleText}"/>
-
-                    <TextBlock Text="Gestión de inventario"
-                               Style="{StaticResource SubTitleText}"
-                               Margin="0,5,0,20"/>
-
-                    <Separator Margin="0,0,0,20" Opacity="0.4"/>
+                    <Separator Margin="0,0,0,5" Opacity="0.4"/>
 
                     <!-- CAMPOS -->
                     <TextBlock Text="Nombre" Style="{StaticResource LabelText}"/>
@@ -45,7 +38,7 @@
                     <TextBox x:Name="txtCodigo" Style="{StaticResource InputTextBox}" IsReadOnly="True"/>
 
                     <!-- BOTONES CRUD -->
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,0">
 
                         <Button x:Name="btnAgregar"
                                 Content="Agregar"
@@ -73,7 +66,7 @@
                     <Button x:Name="btnRegresar"
                             Content="⬅ Regresar"
                             Style="{StaticResource BtnBack}"
-                            Margin="0,20,0,0"
+                            Margin="0,5,0,0"
                             Click="btnRegresar_Click"/>
 
                 </StackPanel>
@@ -92,10 +85,10 @@
             <!-- ENCABEZADO -->
             <TextBlock Text="Listado de Refacciones"
                        Style="{StaticResource HeaderText}"
-                       Grid.Row="0"/>
+                       Grid.Row="0" Margin="45,18,17,53"/>
 
             <!-- FILTROS -->
-            <Border Style="{StaticResource FilterPanel}" Margin="524,6,0,6">
+            <Border Style="{StaticResource FilterPanel-rec}" Margin="393,34,7,650" Grid.RowSpan="3">
                 <Grid Margin="15">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -105,8 +98,8 @@
                     </Grid.ColumnDefinitions>
 
                     <StackPanel Grid.Column="0">
-                        <TextBlock Text="Buscar por Nombre" Style="{StaticResource LabelFilter}"/>
-                        <TextBox x:Name="txtFiltroNombre" Style="{StaticResource FilterTextBox}"/>
+                        <TextBlock Text="Buscar por Nombre" Style="{StaticResource LabelFilter-rec}"/>
+                        <TextBox x:Name="txtFiltroNombre" Style="{StaticResource FilterTextBox-rec}"/>
                     </StackPanel>
 
                     <StackPanel Grid.Column="1" Margin="10,0,0,0">
@@ -122,19 +115,19 @@
                     <Button Grid.Column="3"
                             Content="🔍 Buscar"
                             Style="{StaticResource BtnSearch}"
-                            Margin="15,18,0,0"
+                            Margin="12,21,3,19"
                             Click="btnBuscar_Click"/>
                 </Grid>
             </Border>
 
             <!-- DATAGRID -->
-            <Border Grid.Row="2" Style="{StaticResource TableContainer}" Margin="617,10,57,442">
+            <Border Grid.Row="2" Style="{StaticResource TableContainer}" Margin="409,54,31,-15">
                 <DataGrid x:Name="dgRefacciones"
                           AutoGenerateColumns="False"
                           IsReadOnly="True"
                           SelectionMode="Single"
                           SelectionChanged="dgRefacciones_SelectionChanged"
-                          Style="{StaticResource CustomDataGrid}">
+                          Style="{StaticResource CustomDataGrid}" Margin="-1,-3,14,137">
 
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Código" Binding="{Binding Codigo_refaccion}" Width="80"/>

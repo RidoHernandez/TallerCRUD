@@ -23,6 +23,7 @@ namespace CRUD
         private Window ventanaAnterior;
         private int codigoSeleccionado = -1;
         private string connectionString = "Server=20.3.152.185;Port=3306;Database=Taller;Uid=ricardo;Pwd=7febrero2006;";
+        //private string connectionString = "Server=127.0.0.1;Port=3307;Database=Taller;Uid=root;Pwd=root;";
 
         public Refacciones(Window ventanaAnterior)
         {
@@ -40,11 +41,11 @@ namespace CRUD
                     conn.Open();
 
                     string query = @"SELECT Codigo_refaccion, Nombre, Marca, Precio_unitario, Stock_actual, Stock_minimo, Proveedor
-                                     FROM Refacciones
-                                     WHERE Nombre LIKE @nombre
-                                     AND Marca LIKE @marca
-                                     AND Proveedor LIKE @proveedor
-                                     ORDER BY Codigo_refaccion DESC";
+                             FROM Refacciones
+                             WHERE Nombre LIKE @nombre
+                             AND Marca LIKE @marca
+                             AND Proveedor LIKE @proveedor
+                             ORDER BY Codigo_refaccion ASC";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
@@ -65,6 +66,7 @@ namespace CRUD
                 MessageBox.Show("Error al cargar refacciones: " + ex.Message, "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
 
         private bool ValidarCampos()
         {
@@ -175,18 +177,19 @@ namespace CRUD
             if (dgRefacciones.SelectedItem == null)
                 return;
 
-            dynamic fila = dgRefacciones.SelectedItem;
+            DataRowView fila = (DataRowView)dgRefacciones.SelectedItem;
 
-            codigoSeleccionado = fila.Codigo_refaccion;
+            codigoSeleccionado = Convert.ToInt32(fila["Codigo_refaccion"]);
 
-            txtCodigo.Text = codigoSeleccionado.ToString();
-            txtNombre.Text = fila.Nombre;
-            txtMarca.Text = fila.Marca;
-            txtPrecio.Text = fila.Precio_unitario.ToString();
-            txtStockActual.Text = fila.Stock_actual.ToString();
-            txtStockMinimo.Text = fila.Stock_minimo.ToString();
-            txtProveedor.Text = fila.Proveedor;
+            txtCodigo.Text = fila["Codigo_refaccion"].ToString();
+            txtNombre.Text = fila["Nombre"].ToString();
+            txtMarca.Text = fila["Marca"].ToString();
+            txtPrecio.Text = fila["Precio_unitario"].ToString();
+            txtStockActual.Text = fila["Stock_actual"].ToString();
+            txtStockMinimo.Text = fila["Stock_minimo"].ToString();
+            txtProveedor.Text = fila["Proveedor"].ToString();
         }
+
 
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
         {

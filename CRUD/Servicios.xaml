@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CRUD"
         mc:Ignorable="d"
-        Title="Servicios" Height="950" Width="1000">
+        Title="Servicios" Height="780" Width="1000">
     <Grid>
         <!-- PANEL IZQUIERDO -->
-        <Border Style="{StaticResource LeftPanel}">
+        <Border Style="{StaticResource LeftPanel}" Margin="10,55,590,59">
             <Grid>
                 <StackPanel Margin="20">
 
@@ -44,7 +44,7 @@
                              IsReadOnly="True"/>
 
                     <!-- BOTONES CRUD -->
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20,0,0">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,2,0,0">
 
                         <Button x:Name="btnAgregar"
                                 Content="Agregar"
@@ -68,11 +68,9 @@
                             Style="{StaticResource BtnSecondary}"
                             Margin="0,10,0,0"
                             Click="btnLimpiar_Click"/>
-
                     <Button x:Name="btnRegresar"
                             Content="⬅ Regresar"
                             Style="{StaticResource BtnBack}"
-                            Margin="0,20,0,0"
                             Click="btnRegresar_Click"/>
 
                 </StackPanel>
@@ -80,7 +78,7 @@
         </Border>
 
         <!-- PANEL DERECHO -->
-        <Grid Margin="360,20,20,20">
+        <Grid Margin="0,20,20,20">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -91,10 +89,10 @@
             <!-- ENCABEZADO -->
             <TextBlock Text="Listado de Servicios"
                        Style="{StaticResource HeaderText}"
-                       Grid.Row="0"/>
+                       Grid.Row="0" Margin="53,-13,-48,23"/>
 
             <!-- FILTROS -->
-            <Border Grid.Row="1" Style="{StaticResource FilterPanel}">
+            <Border Style="{StaticResource FilterPanel}" Margin="484,12,96,0" Height="75" VerticalAlignment="Top" Grid.RowSpan="3">
                 <Grid Margin="15">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -115,26 +113,26 @@
                     <Button Grid.Column="2"
                             Content="🔍 Buscar"
                             Style="{StaticResource BtnSearch}"
-                            Margin="15,18,0,0"
+                            Margin="15,13,0,2"
                             Click="btnBuscar_Click"/>
                 </Grid>
             </Border>
 
             <!-- DATAGRID -->
-            <Border Grid.Row="2" Style="{StaticResource TableContainer}">
+            <Border Grid.Row="2" Style="{StaticResource TableContainer}" Margin="408,75,-8,85">
                 <DataGrid x:Name="dgServicios"
                           AutoGenerateColumns="False"
                           IsReadOnly="True"
                           SelectionMode="Single"
                           SelectionChanged="dgServicios_SelectionChanged"
-                          Style="{StaticResource CustomDataGrid}">
+                          Style="{StaticResource CustomDataGrid}" Margin="1,9,-1,125">
 
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Clave" Binding="{Binding Clave_servicio}" Width="80"/>
                         <DataGridTextColumn Header="Servicio" Binding="{Binding Nombre_servicio}" Width="200"/>
                         <DataGridTextColumn Header="Descripción" Binding="{Binding Descripcion}" Width="280"/>
                         <DataGridTextColumn Header="Costo Base" Binding="{Binding Costo_base}" Width="110"/>
-                        <DataGridTextColumn Header="Tiempo (hrs)" Binding="{Binding Tiempo_estimado}" Width="110"/>
+                        <DataGridTextColumn Header="Tiempo (hrs)" Binding="{Binding Tiempo_estimado_horas}" Width="110"/>
                     </DataGrid.Columns>
 
                 </DataGrid>
